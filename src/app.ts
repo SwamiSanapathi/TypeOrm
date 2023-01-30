@@ -14,26 +14,24 @@ declare global {
     }
 }
 
-
+// preventing server from crashing due to all types of exceptions
 process.on('unhandledRejection', (err) => {
     console.error(err);
     process.exit(1);
 });
 
+// Middleware to set tenant connection in request
 app.use(async (req: any, res, next) => {
     try {
         const { client } = req.headers;
-
         if (!client) return res.status(400).send({ error: 'Client is required' });
-        req.entityManager = await getClientConnection(client as string)
+        req.tenant = await getClientConnection(client)
         next();
     } catch (error) {
         console.error(error);
         res.status(500).send({ error: 'Internal Server Error' });
     }
 });
-
-
 
 app.use(route)
 app.listen(2000, () => {

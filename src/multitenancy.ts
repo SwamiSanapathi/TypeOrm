@@ -3,15 +3,15 @@ import { getDataSourceOptions } from "./dbSourceOptions";
 
 const connectionsMap = new Map<string, DataSource>();
 
-async function getClientConnection(client: string) {  
-  
-  if (connectionsMap.has(client)) {
-    return connectionsMap.get(client);
-  }
+async function getClientConnection(tenant: string) {
 
-  const source = new DataSource(getDataSourceOptions(client));
+  if (connectionsMap.has(tenant)) {
+    return connectionsMap.get(tenant);
+  }
+  
+  const source = new DataSource(getDataSourceOptions(tenant));
   const connection = await source.initialize()
-  connectionsMap.set(client, connection);
+  connectionsMap.set(tenant, connection);
   return connection;
 }
 
