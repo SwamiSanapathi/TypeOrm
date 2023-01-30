@@ -10,7 +10,7 @@ async function getClientConnection(tenant: string) {
   }
   
   const source = new DataSource(getDataSourceOptions(tenant));
-  const connection = await source.initialize()
+  const connection = await source.initialize();
   connectionsMap.set(tenant, connection);
   return connection;
 }
