@@ -2,4 +2,4 @@
 
 1. clone repo
 2. run `npm i`
-3. run `npm rund dev`
+3. run `npm run dev`
