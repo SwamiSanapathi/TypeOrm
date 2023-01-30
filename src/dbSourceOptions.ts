@@ -12,6 +12,7 @@ export const getDataSourceOptions = (tenant: string): DataSourceOptions => {
         database: `${tenant}`,
         synchronize: false,
         logging: true,
+        // debug: true,
         entities: [__dirname + "/entity/*.*"],
         subscribers: [],
         migrations: [],

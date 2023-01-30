@@ -10,6 +10,6 @@ export class Clients {
     @Column()
     name: string
 
-    @OneToMany(() => Users, user => user.client, { cascade: true })
+    @OneToMany(() => Users, user => user.client, { cascade: true, onDelete: "CASCADE" })
     users: Relation<Users[]>
 }

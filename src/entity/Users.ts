@@ -13,7 +13,7 @@ export class Users {
     @Column()
     client_id: number
 
-    @ManyToOne(() => Clients, client => client.users, )
+    @ManyToOne(() => Clients, client => client.users, {onDelete: "CASCADE"})
     @JoinColumn({ name: 'client_id', referencedColumnName: 'client_id' })
     client: Relation<Clients>
 }
