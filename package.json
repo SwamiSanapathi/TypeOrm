@@ -1,12 +1,10 @@
 {
-  "name": "typeorm-typescript-example",
+  "name": "typeorm",
   "version": "0.0.1",
-  "description": "Example how to use TypeORM with TypeScript.",
-  "license": "MIT",
-  "readmeFilename": "README.md",
-  "author": {
-    "name": "Umed Khudoiberdiev",
-    "email": "pleerock.me@gmail.com"
+  "description": "TypeORM with TypeScript.",
+  "scripts": {
+    "dev": "nodemon src/app.ts",
+    "start": "tsc && node src/dist/app.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.16",
@@ -22,11 +20,5 @@
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.0-rc.40"
-  },
-  "scripts": {
-    "watch": "tsc -w",
-    "dev": "nodemon src/app.ts",
-    "start": "tsc && node src/dist/index.js",
-    "typeorm": "./node_modules/.bin/typeorm"
   }
 }
